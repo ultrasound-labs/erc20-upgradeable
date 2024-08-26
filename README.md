@@ -1,1 +1,1 @@
-# petal-token
+# erc20-upgradeable token

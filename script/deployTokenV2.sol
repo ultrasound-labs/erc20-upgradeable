@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import "../src/MyToken.sol";
 import "../src/MyTokenV2.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
-import "@openzeppelin-foundry-upgrades/Upgrades.sol";
+import {Upgrades} from "lib/openzeppelin-foundry-upgrades/src/Upgrades.sol";
 import "forge-std/Script.sol";
 
 contract DeployV2AndUpgrade is Script {

@@ -6,10 +6,25 @@ import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 import "forge-std/Script.sol";
 
 contract DeployUUPSProxy is Script {
-    function run() public {
+    uint256 public DEFAULT_ANVIL_PRIVATE_KEY = 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80;
+    uint256 public deployerKey;
 
-        address _implementation = YOUR_DEPLOYED_SMART_CONTRACT_ADDRESS; // Replace with your token address
-        vm.startBroadcast();
+    function run() public {
+        if (block.chainid == 73571) {
+            // tenderly testnet
+            deployerKey = vm.envUint("TENDERLY_PRIVATE_KEY");
+        } else if (block.chainid == 1) {
+            // ethereum
+            deployerKey = vm.envUint("PRIVATE_KEY_MAINNET");
+        } else {
+            // local evm (anvil)
+            // block.chainid == 31337
+            deployerKey = DEFAULT_ANVIL_PRIVATE_KEY;
+        }
+
+        vm.startBroadcast(deployerKey);
+
+        address _implementation = 0xB7194045FCe73e6B42F6bba4208a1a0df3c12Fbe; // Replace with your token address
 
         // Encode the initializer function call
         bytes memory data = abi.encodeWithSelector(

@@ -10,7 +10,7 @@ import "@openzeppelin/contracts-upgradeable/access/extensions/AccessControlDefau
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 
 /// @custom:oz-upgrades-from MyToken
-contract MyTokenV2Alternative1 is
+contract MyTokenV2Alternative is
     Initializable,
     ERC20Upgradeable,
     ERC20PermitUpgradeable,

@@ -6,13 +6,13 @@ import "forge-std/console.sol";
 
 import "../src/MyToken.sol";
 import "../src/MyTokenV2.sol";
-import "../src/MyTokenV2Alternative.sol";
+import {MyTokenV2Alternative} from "../src/MyTokenV2Alternative.sol";
 import "../src/MyTokenV3.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Utils.sol";
-import "@openzeppelin-foundry-upgrades/Upgrades.sol";
+import {Upgrades} from "lib/openzeppelin-foundry-upgrades/src/Upgrades.sol";
 
 contract MyTokenTest is Test {
     MyToken myToken;
